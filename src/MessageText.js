@@ -12,7 +12,7 @@ import Communications from 'react-native-communications';
 export default class MessageText extends React.Component {
   constructor(props) {
     super(props);
-    this.onUrlPress = this.onUrlPress.bind(this);
+    this.onUrlPress = this.props.onUrlPress ? this.props.onUrlPress : this.onUrlPress.bind(this);
     this.onPhonePress = this.onPhonePress.bind(this);
     this.onEmailPress = this.onEmailPress.bind(this);
   }
@@ -131,4 +131,5 @@ MessageText.propTypes = {
     left: Text.propTypes.style,
     right: Text.propTypes.style,
   }),
+  onUrlPress: React.PropTypes.func,
 };
